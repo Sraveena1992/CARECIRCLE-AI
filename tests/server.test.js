@@ -7,6 +7,7 @@ test('medication validation and creation',async()=>{assert.equal((await req('/ap
 test('dose recorded once only',async()=>{const date=new Date().toISOString().slice(0,10),b={medicationId:globalThis.medId,date,status:'taken'};assert.equal((await req('/api/doses','POST',b)).status,201);assert.equal((await req('/api/doses','POST',b)).status,409)});
 test('appointment CRUD',async()=>{const r=await req('/api/appointments','POST',{title:'Visit',doctor:'Doctor',date:'2027-01-02',time:'12:00'});assert.equal(r.status,201);assert.equal((await req('/api/appointments/'+r.data.id,'DELETE')).status,200)});
 test('summary is honestly labeled',async()=>{const r=await req('/api/summary');assert.match(r.data.mode,/not generative AI/)});
+test('premium dashboard CSS is served if present',async()=>{const r=await fetch(base+'/dashboard-premium.css');assert.notEqual(r.status,404)});
 test('no arbitrary static file access',async()=>{const r=await fetch(base+'/server.js');assert.equal(r.status,404)});
 test('logout revokes session',async()=>{assert.equal((await req('/api/logout','POST')).status,200);assert.equal((await req('/api/state')).status,401)});
 test.after(async()=>{await new Promise(r=>server.close(r));fs.rmSync(tmp,{recursive:true,force:true})});

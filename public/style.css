@@ -57,3 +57,24 @@ button:not(:disabled):active{transform:scale(.98)}
 .login-panel .care-motto{margin-top:13px}
 .login-panel .hero-v4+.care-motto{color:#bfeedd}
 @media(max-width:650px){.hero-v4{height:260px}.portrait-scene{max-width:480px}.glass-one{bottom:0;left:0}.glass-two{top:8px;right:0}.glass-three{top:0;left:0}}
+
+
+/* CareCircle animated welcome mini-film: silent, CSS-only, accessible */
+.care-film{position:relative;isolation:isolate;max-width:570px;margin:14px 0 8px;border-radius:23px;overflow:hidden;background:linear-gradient(130deg,#e9fff3,#c6e9f0 60%,#fbe7da);box-shadow:0 20px 50px #001e2b55;border:1px solid #ffffffa8;color:#123d42;min-height:225px}
+.film-top{display:flex;justify-content:space-between;padding:13px 20px 0;font-size:10px;letter-spacing:1.2px;font-weight:800;color:#397d77}
+.film-live{color:#167f69}.film-scene{position:relative;height:112px;overflow:hidden}
+.film-sun{position:absolute;top:0;right:23%;font-size:44px;color:#f5c96b;animation:filmSun 12s ease-in-out infinite}
+.film-person{position:absolute;bottom:1px;font-size:70px;filter:drop-shadow(0 9px 8px #295a6340);animation:filmSway 3s ease-in-out infinite}
+.film-person.elder{left:29%}.film-person.caregiver{right:29%;animation-delay:-1.5s}
+.film-connection{position:absolute;left:48%;top:38px;color:#e85b8a;font-size:28px;animation:filmPulse 2s ease-in-out infinite}
+.film-heart{position:absolute;color:#ee8ba3;font-size:22px;animation:filmFloat 5s ease-in-out infinite}.film-heart.h1{left:20%;bottom:12px}.film-heart.h2{right:19%;bottom:25px;animation-delay:-2s}.film-heart.h3{left:55%;top:8px;animation-delay:-3s}
+.film-message{display:flex;flex-direction:column;gap:3px;align-items:center;text-align:center;padding:4px 12px 18px}
+.film-message strong{font-size:17px;letter-spacing:-.4px}.film-message span{font-size:12px;color:#567b7a}
+.film-progress{position:absolute;bottom:0;left:0;height:4px;background:#24a38b;animation:filmProgress 12s linear infinite}
+@keyframes filmFloat{0%,100%{transform:translateY(0);opacity:.3}50%{transform:translateY(-27px);opacity:1}}
+@keyframes filmSway{0%,100%{transform:rotate(-3deg)}50%{transform:rotate(4deg)}}
+@keyframes filmPulse{0%,100%{transform:scale(.85)}50%{transform:scale(1.25)}}
+@keyframes filmSun{0%,100%{transform:translateY(3px);opacity:.6}50%{transform:translateY(-8px);opacity:1}}
+@keyframes filmProgress{from{width:0}to{width:100%}}
+@media(prefers-reduced-motion:reduce){.care-film *{animation:none!important}.film-progress{width:100%}}
+@media(max-width:650px){.care-film{min-height:205px}.film-person{font-size:58px}.film-message strong{font-size:14px}}

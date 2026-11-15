@@ -1,122 +1,209 @@
 <div align="center">
 
 # ✺ CARECIRCLE AI
+### Better days, together.
+**Every dose matters. Every elder deserves a circle of care.**
 
-### Every dose matters. Every elder deserves a circle of care.
+An elder-first, shared care workspace for daily medication routines, appointments and caregiver coordination.
 
-**An accessible, connected care workspace for older adults and the people supporting them.**
+[![Live Demo](https://img.shields.io/badge/OPEN-LIVE%20DEMO-117C70?style=for-the-badge)](https://carecircle-ai-0og5.onrender.com)
+[![Source](https://img.shields.io/badge/EXPLORE-GITHUB-102D37?style=for-the-badge)](https://github.com/Sraveena1992/CARECIRCLE-AI)
 
-![Status](https://img.shields.io/badge/status-hackathon%20prototype-2B7469) ![Node](https://img.shields.io/badge/Node.js-18%2B-43853D) ![Tests](https://img.shields.io/badge/API%20tests-9%20passing-1D8069) ![Challenge](https://img.shields.io/badge/Catalyst-2026-9C6DCE)
+![Catalyst 2026](https://img.shields.io/badge/Catalyst-2026-8B5CF6) ![Solo project](https://img.shields.io/badge/Build-Solo-0E7490) ![Node 18+](https://img.shields.io/badge/Node.js-18%2B-43853D) ![Prototype](https://img.shields.io/badge/Status-Demo%20prototype-F59E0B)
 
-**Medication routines · Dose check-ins · Appointments · Caregiver visibility · Accessible design**
+**💊 Medication routines · 📅 Appointments · 👥 Care circle · 📊 Adherence insights · ♿ Accessible design**
 
 </div>
 
 ---
 
-## ✨ Why CareCircle?
+## 🌟 The vision
 
-CareCircle turns scattered care routines into a shared, understandable daily picture. Older adults can review their medications and appointments, record what happened, and see the people in their care circle. A caregiver can review the same fictional care record. The elder remains at the center of the experience.
+Older adults often manage multiple prescriptions, appointments and helpers. A list of reminders alone does not give everyone a shared picture of what has happened, what is coming up, and where support is needed.
 
-> **Prototype disclaimer:** All accounts and data are fictional. This project is **not** suitable for real patient information, medication management, or medical decisions. It does not deliver real email reminders or use a generative AI service.
+**CareCircle AI** explores a more human-centered approach: a clear daily dashboard for the older adult, with a shared fictional care record that a caregiver can review. The elder remains central to every decision.
 
-## 🖥️ Product experience
+> **Important:** This is a **fictional hackathon demonstration**, not a medical device or production healthcare service. Never upload real patient data, rely on it for medication decisions, or interpret its rule-based insights as medical advice. Despite the project name, the current implementation **does not integrate a generative AI model**.
 
-| Experience | What works in this prototype |
-|---|---|
-| 🌿 Elder-first dashboard | Clear navigation, prominent daily medication and appointment information |
-| 💊 Medication tracking | Add schedules and record dose outcomes with duplicate prevention |
-| 📅 Appointments | Create and remove appointments |
-| 👥 Shared care view | Two predefined fictional roles share a demonstration care circle |
-| 📈 Care insights | Calculated adherence summary and recorded activity |
-| 🔔 In-app awareness | Upcoming/missed dose and appointment indicators when dashboard loads |
-| 🔐 Demo access | Passcode login, cookie sessions, basic throttling and input validation |
-| 📱 Accessible interface | Responsive layout, readable typography, visible action controls |
+## 🖥️ Explore the experience
 
-## 🚀 Run locally
+**[Launch the interactive demo →](https://carecircle-ai-0og5.onrender.com)**
 
-**Requirements:** Node.js 18 or newer. No npm dependencies or API keys required.
+The live demo includes a welcome/login experience, dashboard, medications, appointments, care-circle view and insights. Free hosting may take time to wake up after inactivity.
+
+| Area | Implemented demonstration |
+|:--|:--|
+| 🏡 **Overview** | At-a-glance medication status and upcoming appointments |
+| 💊 **Medications** | Add a schedule, deactivate a medication, log a dose as taken or skipped |
+| 🛑 **Duplicate prevention** | A dose can only be logged once per medication per day |
+| 📅 **Appointments** | Add and remove fictional appointments |
+| 👥 **Care circle** | Switch between two predefined elder/caregiver demo identities |
+| 📈 **Insights** | Calculated dose totals and a clearly labeled rule-based summary |
+| 🔔 **Awareness** | In-app upcoming/missed dose and appointment indicators when state is requested |
+| 🔐 **Access** | Demo passcode login, session cookie and basic failed-login throttling |
+| 📱 **Interface** | Responsive layout with prominent controls and readable text |
+
+### 🎭 Fictional demo personas
+
+| Role | Account | Demo passcode |
+|:--|:--|:--|
+| 👵 Margaret — Elder | `elder` | `123456` |
+| 🤝 Alex — Caregiver | `caregiver` | `654321` |
+
+**These passcodes are public only because the accounts and data are fictional.** They must not be reused for real accounts.
+
+## 🎬 Suggested 90-second demo
+
+1. **Welcome (0–15s):** Open the live app and sign in as Margaret.
+2. **Daily overview (15–30s):** Show today's scheduled medicines and the upcoming appointment.
+3. **Record care (30–50s):** Mark a fictional dose as taken; show the updated count. Attempting the same dose twice is rejected.
+4. **Coordinate (50–70s):** Add a fictional appointment and inspect Care insights.
+5. **Shared view (70–90s):** Sign out, sign in as Alex and demonstrate the same fictional care circle.
+
+*Demo results depend on the current stored demonstration data. Reset the demo data before recording if necessary.*
+
+## 🧠 What makes the approach different?
+
+**A care circle, not just a reminder list.** The interface brings routines, recorded actions, appointments and caregiver context together.
+
+**Evidence of an action, not an assumption.** The app distinguishes scheduled doses from doses explicitly recorded as taken or skipped. It does not claim an unrecorded dose was consumed.
+
+**Human-centered safeguards.** The rule-based summary advises checking with a qualified professional rather than automatically changing treatment.
+
+**Transparent prototype boundaries.** Missing production capabilities are documented rather than presented as completed integrations.
+
+## 🏗️ Architecture
+
+```text
+        Elder / Caregiver demo browser
+                   │
+       HTML + CSS + Vanilla JavaScript
+                   │
+                HTTP API
+                   │
+          Node.js (server.js)
+          ├── Demo passcode login / sessions
+          ├── Medication schedules + dose events
+          ├── Appointment records
+          ├── In-app notification generation
+          └── Rule-based summary + audit events
+                   │
+           Local JSON demo file
+```
+
+**Stack:** Node.js 18+, built-in `node:http`, `node:crypto`, `node:fs`; HTML, CSS and vanilla JavaScript. No third-party npm runtime dependencies or external AI keys are required.
+
+### API overview
+
+| Method | Endpoint | Purpose |
+|:--|:--|:--|
+| POST | `/api/login` | Sign in with demo persona and passcode |
+| POST | `/api/logout` | Revoke current session |
+| GET | `/api/state` | Retrieve shared demo state and in-app alerts |
+| POST | `/api/medications` | Create a fictional medication schedule |
+| DELETE | `/api/medications/:id` | Deactivate a schedule |
+| POST | `/api/doses` | Record today's taken/skipped status |
+| POST | `/api/appointments` | Create an appointment |
+| DELETE | `/api/appointments/:id` | Remove an appointment |
+| GET | `/api/summary` | Obtain rule-based daily summary |
+
+All endpoints except login and logout require a valid demo session.
+
+## ⚡ Run locally
+
+**Prerequisite:** Node.js 18 or newer.
 
 ```bash
+git clone https://github.com/Sraveena1992/CARECIRCLE-AI.git
+cd CARECIRCLE-AI
 npm start
 ```
 
-Open **http://localhost:3000**.
+Open **http://localhost:3000**. No API keys or database server are required.
+
+To run automated tests:
 
 ```bash
 npm test
 ```
 
-The automated suite contains **9 API tests**. It covers authentication denial, invalid passcodes, medication validation and creation, duplicate dose prevention, appointments, summary labeling, static-file restrictions and logout. Run the tests on your own machine to verify your environment.
+The repository currently defines **nine Node.js API tests**, covering anonymous denial, invalid passcodes, login, medication validation, duplicate dose prevention, appointment creation/deletion, summary labeling, static-file restrictions and logout. **Run the command to verify results in your own environment**; a test file is not itself proof of a passing deployment.
 
-## 👤 Demo accounts
-
-| Persona | Username | Passcode |
-|---|---|---|
-| Margaret · Elder | `elder` | `123456` |
-| Alex · Caregiver | `caregiver` | `654321` |
-
-These credentials are deliberately published for a **fictional demonstration**. Never enter personal medical information.
-
-## 🧭 Explore the app
-
-1. Sign in as **Margaret** and review the Overview.
-2. Open **Medications**, add a fictional medicine and record a dose outcome.
-3. Visit **Appointments** and add a fictional appointment.
-4. Open **Care insights** to see recorded activity and adherence.
-5. Sign out, sign in as **Alex**, and inspect the shared fictional care circle.
-
-## 🧩 Architecture
+### 📁 Project structure
 
 ```text
-Browser (HTML + CSS + JavaScript)
-           │
-           ▼
-Node.js HTTP server (server.js)
-           │
-           ▼
-Local JSON persistence (demo only)
+CARECIRCLE-AI/
+├── public/
+│   ├── index.html          # Login and dashboard markup
+│   ├── app.js              # Client-side interactions
+│   └── style.css           # Responsive premium styling
+├── tests/
+│   └── server.test.js      # Node API tests
+├── server.js               # HTTP server, API and demo storage
+├── package.json            # Start and test scripts
+└── README.md               # Project documentation
 ```
 
-**Technology:** dependency-free Node.js HTTP API, vanilla JavaScript, responsive CSS, Node's built-in test runner. Designed to be quick to inspect, run and demonstrate.
+The repository may also contain an earlier nested project copy; the root files above are the deployment entry point.
 
-## 🛡️ Safety and transparent limitations
+## ☁️ Deployment
 
-- **No real outbound emails:** reminders are displayed in the application; there is no SMTP integration or background delivery service.
-- **No generative AI:** insights are rule-based, not LLM-generated.
-- **No production authentication:** fixed-salt passcode hashing, in-memory sessions and hard-coded demonstration accounts.
-- **No secure invitations or granular patient consent:** two predefined roles only.
-- **No production persistence:** local JSON files are unsuitable for concurrent, multi-instance or ephemeral hosting.
-- **No real clinical guidance:** no diagnoses, dosage recommendations or automated treatment decisions.
-- **No clinical certification or compliance claims.**
+For a Node.js service such as Render:
 
-For any real-world application, implement individual user accounts, proper consent, audited role-based access, encrypted durable storage, reliable background notification processing, secure email integration, and a medical safety review.
+| Setting | Value |
+|:--|:--|
+| Root directory | Repository root |
+| Build command | `npm install` |
+| Start command | `npm start` |
+| Runtime | Node.js 18+ |
+| Port | Provided through `PORT` |
 
-## ☁️ Deployment notes
+**Live demonstration:** https://carecircle-ai-0og5.onrender.com
 
-This repository can run on a Node.js host using:
+The app uses a local JSON file for demonstration storage. On ephemeral hosts, updates **may disappear after restarts or redeployments**. This is not durable production storage.
 
-```text
-Build command: npm install
-Start command: npm start
-```
+## 🔒 Security, safety and known limitations
 
-The server reads the `PORT` environment variable. **Deploy only with fictional data.** On hosts with ephemeral filesystems, demonstration changes may disappear after a restart. Do not present a successful deployment as proof of production readiness.
+| Area | Current implementation | Required for real-world use |
+|:--|:--|:--|
+| Identity | Two hard-coded fictional personas; passcodes with fixed-salt hashing | Unique accounts, password hardening, recovery and MFA where appropriate |
+| Sessions | In-memory cookie sessions; basic throttling | Durable session management, secure deployment configuration and comprehensive CSRF protection |
+| Permissions | Both predefined roles can edit the shared demo record | Patient consent, least-privilege role controls and revocation |
+| Storage | Local JSON file | Encrypted durable database, backups and concurrency handling |
+| Reminders | Generated **in-app** when state is requested | Background scheduler, verified email delivery, retries and opt-in preferences |
+| Intelligence | Deterministic rules | Validated AI integration if appropriate, with human oversight |
+| Clinical use | Fictional sample data only | Clinical review, privacy assessment and applicable regulatory compliance |
 
-## 🏆 Catalyst 2026 submission
+**Not implemented:** real email/SMS sending, continuous background reminder delivery, generative AI, secure multi-family onboarding, clinical validation or production-grade patient-data protection.
+
+Do not use this prototype to prescribe, change or double a dose. Follow the prescribing clinician's instructions.
+
+## 🏆 Catalyst 2026 — Solo AI Hackathon
 
 **Challenge:** Elderly Care & Medication Management Platform  
-**Format:** Solo hackathon  
-**Submission:** Public GitHub repository, one branch, repository under 10 MB.
+**Organizer:** Makers Need More (MnM) / PromptWars × Catalyst  
+**Submission:** Public GitHub repository  
+**Repository:** https://github.com/Sraveena1992/CARECIRCLE-AI
 
-The organizer's instructions also mention **Google Antigravity**. Its mandatory-use status has not been independently confirmed; this project was prepared without assuming an exception to that requirement.
+Organizer guidance specifies **a public repository, one branch, repository size below 10 MB and no more than two submission attempts**. It also lists Google Antigravity in its workflow. This README does **not** assert that Antigravity usage or any other organizer compliance requirement has been independently verified.
+
+## 🛣️ Future roadmap
+
+- Opt-in email reminders with scheduled delivery and failure/retry tracking
+- Granular patient-controlled caregiver invitations and permissions
+- Durable, encrypted multi-user storage and auditability
+- Better accessibility testing with older adults and assistive technologies
+- Carefully evaluated AI-assisted care coordination, without autonomous clinical decisions
+- Expanded automated, browser and security testing
 
 ---
 
 <div align="center">
 
-**Built for care, clarity and human-centered decisions.**
+### 💚 Care should feel connected, clear and human.
 
-*CareCircle AI · Catalyst 2026 hackathon prototype*
+**[🌐 Try the demo](https://carecircle-ai-0og5.onrender.com) · [💻 View the code](https://github.com/Sraveena1992/CARECIRCLE-AI)**
+
+*Built for Catalyst 2026 · Fictional hackathon prototype · Not medical advice*
 
 </div>

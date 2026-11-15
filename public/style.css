@@ -44,3 +44,16 @@ button:not(:disabled):active{transform:scale(.98)}
 @media(max-width:900px){.hero-visual{height:280px}.care-illustration{max-width:470px}.care-halo{width:260px;height:260px}.care-person{scale:.82}.login-panel .eyebrow{margin-top:26px}}
 @media(max-width:600px){.hero-visual{height:255px}.care-illustration{transform:scale(.78);transform-origin:top left;width:120%}.floating-card{bottom:0;left:0;min-width:230px;padding:12px}.login-panel h1{letter-spacing:-2px}}
 @media(prefers-reduced-motion:reduce){.care-3d-tile,.care-halo{animation:none!important}.stat,.panel{transition:none!important}}
+
+/* v4: illustration replaces previous broken CSS-only emoji characters */
+.hero-v4{height:355px;margin-top:8px;overflow:visible}
+.portrait-scene{position:relative;height:100%;width:min(100%,650px);margin:auto}
+.portrait-scene svg{width:100%;height:100%;overflow:visible;filter:drop-shadow(0 12px 28px #092e3866)}
+.care-glass{position:absolute;z-index:2;background:#f5fffcf0;color:#16483f;border:1px solid #fff;border-radius:18px;box-shadow:0 14px 35px #042c3860;backdrop-filter:blur(16px);display:flex;align-items:center;gap:10px;padding:13px 17px;font-size:14px}
+.care-glass small{display:block;color:#60867d;font-size:11px;margin-top:3px}.care-glass b{display:block;font-size:13px}
+.glass-one{left:0;bottom:16px}.glass-one>span{font-size:24px;color:#e17b8d}
+.glass-two{right:0;top:45px;color:#19856e;font-weight:800}.glass-two span{font-size:12px;color:#315e55}
+.glass-three{left:7%;top:32px;font-size:30px;color:#1b927b;width:62px;height:62px;justify-content:center;transform:rotate(-12deg)}
+.login-panel .care-motto{margin-top:13px}
+.login-panel .hero-v4+.care-motto{color:#bfeedd}
+@media(max-width:650px){.hero-v4{height:260px}.portrait-scene{max-width:480px}.glass-one{bottom:0;left:0}.glass-two{top:8px;right:0}.glass-three{top:0;left:0}}
